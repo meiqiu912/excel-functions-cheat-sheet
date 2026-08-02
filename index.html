@@ -1,147 +1,98 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Excel函数速查手册｜200个常用函数大全（VLOOKUP/SUMIF/IF 实战案例）免费在线速查</title>
-<meta name="description" content="Excel函数速查工具：免费在线查询VLOOKUP、SUMIF、IF、INDEX、MATCH、COUNTIF等200个常用Excel函数的语法、参数和实战案例。职场办公必备，财务/HR/数据分析必收藏。">
-<meta name="keywords" content="Excel函数速查,Excel函数大全,Excel常用函数,VLOOKUP用法,SUMIF用法,Excel教程">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Excel函数速查手册 | 200+常用函数实战案例，拿来即用</title>
+<meta name="description" content="Excel函数速查手册：9章200+职场最常用函数，每个函数配真实案例，财务/HR/运营/学生都适用，不用再百度查函数，每天省1小时。">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: "Microsoft YaHei","PingFang SC",sans-serif; background:#f5f7fa; color:#2c3e50; }
-  .hero { background:linear-gradient(135deg,#1e8449 0%,#27ae60 60%,#2ecc71 100%); color:#fff; padding:48px 20px; text-align:center; }
-  .hero h1 { font-size:28px; margin-bottom:12px; }
-  .hero p { font-size:15px; opacity:.92; max-width:720px; margin:0 auto 20px; line-height:1.8; }
-  .search-box { max-width:600px; margin:0 auto; }
-  .search-box input { width:100%; padding:14px 18px; font-size:16px; border:none; border-radius:8px; outline:none; box-shadow:0 4px 12px rgba(0,0,0,.15); }
-  .cta-btn { display:inline-block; margin-top:18px; background:#fff; color:#1e8449; font-weight:bold; padding:12px 28px; border-radius:8px; text-decoration:none; font-size:15px; box-shadow:0 4px 12px rgba(0,0,0,.12); transition:transform .2s; }
-  .cta-btn:hover { transform:translateY(-2px); }
-  .container { max-width:1000px; margin:0 auto; padding:28px 16px; }
-  .toolbar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
-  .cat-btn { padding:8px 16px; border-radius:20px; border:1px solid #ddd; background:#fff; cursor:pointer; font-size:13px; transition:all .2s; }
-  .cat-btn.active { background:#1e8449; color:#fff; border-color:#1e8449; }
-  .card { background:#fff; border-radius:10px; padding:18px 20px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.05); border-left:4px solid #27ae60; }
-  .card h3 { font-size:16px; color:#1e8449; margin-bottom:6px; font-family:Consolas,monospace; }
-  .card .tag { display:inline-block; font-size:11px; background:#eafaf1; color:#1e8449; padding:2px 8px; border-radius:10px; margin-right:6px; }
-  .card p { font-size:13px; line-height:1.8; color:#555; }
-  .card code { background:#f0f4f8; padding:1px 6px; border-radius:4px; font-family:Consolas,monospace; font-size:12px; color:#c0392b; }
-  .empty { text-align:center; color:#999; padding:30px; display:none; }
-  .promo { background:linear-gradient(135deg,#fff 0%,#eafaf1 100%); border:2px solid #27ae60; border-radius:12px; padding:28px; margin:30px 0; text-align:center; }
-  .promo h2 { color:#1e8449; font-size:20px; margin-bottom:10px; }
-  .promo ul { text-align:left; display:inline-block; margin:12px auto; line-height:2; font-size:14px; color:#555; }
-  .promo .price { font-size:22px; color:#e74c3c; font-weight:bold; }
-  .promo .origin { color:#999; text-decoration:line-through; font-size:14px; }
-  .promo .buy { display:inline-block; margin-top:14px; background:#1e8449; color:#fff; font-size:16px; font-weight:bold; padding:14px 44px; border-radius:8px; text-decoration:none; transition:background .2s; }
-  .promo .buy:hover { background:#145a32; }
-  .footer { text-align:center; padding:24px; color:#999; font-size:12px; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#1f2937;line-height:1.7}
+.hero{background:linear-gradient(135deg,#0f3d2e 0%,#1a6b4a 60%,#2e9e6b 100%);color:#fff;padding:64px 20px;text-align:center}
+.hero h1{font-size:34px;font-weight:800;margin-bottom:14px}
+.hero p{font-size:17px;opacity:.92;max-width:640px;margin:0 auto}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:18px}
+.container{max-width:860px;margin:0 auto;padding:36px 20px}
+.section{background:#fff;border-radius:14px;padding:30px;margin-bottom:22px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.section h2{font-size:22px;margin-bottom:16px;color:#0f3d2e;border-left:4px solid #2e9e6b;padding-left:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.item{background:#f0fdf4;border:1px solid #d1fae5;border-radius:10px;padding:16px}
+.item b{color:#166534;display:block;margin-bottom:4px}
+.chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.chapter{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;font-size:14px}
+.price-box{text-align:center;padding:36px 20px}
+.price-box .old{color:#9ca3af;text-decoration:line-through;font-size:16px}
+.price-box .now{font-size:44px;font-weight:800;color:#c2410c;margin:6px 0}
+.price-box .unit{font-size:18px}
+.btn{display:inline-block;background:linear-gradient(135deg,#ea580c,#c2410c);color:#fff;padding:16px 52px;border-radius:50px;font-size:19px;font-weight:700;text-decoration:none;margin-top:14px;box-shadow:0 6px 20px rgba(194,65,12,.3);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.faq details{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer}
+.footer{text-align:center;padding:30px;color:#9ca3af;font-size:13px}
+.note{font-size:13px;color:#6b7280;margin-top:12px}
 </style>
 </head>
 <body>
-
 <div class="hero">
-  <h1>📊 Excel 函数在线速查工具</h1>
-  <p>免费查询 200 个常用 Excel 函数的语法、参数与实战案例。<br>输入函数名（如 VLOOKUP、SUMIF、IF）即可秒查，职场办公效率翻倍。</p>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="输入函数名搜索，如 VLOOKUP / IF / SUMIF ...">
-  </div>
-  <a class="cta-btn" href="#promo">📖 想要全部 200 个函数？→</a>
+  <span class="tag">📘 职场效率必备 · 200+ 函数实战</span>
+  <h1>Excel 函数速查手册<br>200+ 常用函数 · 拿来即用</h1>
+  <p>还在为 VLOOKUP 报错百度半天？还在为 IF 嵌套绕晕头？这本手册把 200+ 职场最常用函数全部整理好，每个都配真实案例，打开就能抄着用，每天帮你省 1 小时查函数的时间。</p>
 </div>
 
 <div class="container">
-  <div class="toolbar" id="toolbar">
-    <button class="cat-btn active" data-cat="all">全部</button>
-    <button class="cat-btn" data-cat="lookup">查找引用</button>
-    <button class="cat-btn" data-cat="logic">逻辑判断</button>
-    <button class="cat-btn" data-cat="sum">求和统计</button>
-    <button class="cat-btn" data-cat="text">文本处理</button>
-    <button class="cat-btn" data-cat="date">日期时间</button>
+
+  <div class="section">
+    <h2>📌 这本手册帮你解决什么</h2>
+    <div class="grid">
+      <div class="item"><b>函数记不住</b>200+ 函数一册速查，告别百度碎片化搜索</div>
+      <div class="item"><b>用了总报错</b>每个函数配真实案例与常见坑，看完就会用</div>
+      <div class="item"><b>效率提不上去</b>VLOOKUP / SUMIFS / 数据透视思路一网打尽</div>
+      <div class="item"><b>没人系统教</b>9 章完整体系，从入门到实战全覆盖</div>
+    </div>
   </div>
-  <div id="list"></div>
-  <div class="empty" id="empty">未找到匹配的函数，试试其他关键词～</div>
-</div>
 
-<div class="container">
-  <div class="promo" id="promo">
-    <h2>📖 《Excel 函数速查手册》完整版</h2>
-    <p>这里只放了 20 个入门函数。完整手册包含 <b>200+ 个常用函数</b>，每个都配：</p>
-    <ul>
-      <li>✅ 函数语法 + 参数逐条讲解</li>
-      <li>✅ 职场真实场景实战案例（工资核算/报表统计/数据清洗）</li>
-      <li>✅ 常见错误排查（#N/A、#VALUE! 怎么解决）</li>
-      <li>✅ 速查总表 CSV（可导入 Excel 随手查）</li>
-      <li>✅ HTML 精美电子书，手机电脑都能看</li>
-    </ul>
-    <p><span class="price">¥9.9</span> <span class="origin">原价 ¥29.9</span> 一杯奶茶钱，省下一年百度时间</p>
-    <a class="buy" href="http://82.157.101.183:8088/白洁/web/goods/pay-1785643231981-Excel函数速查手册200常用函数实战案例.html" target="_blank">立即购买 →</a>
+  <div class="section">
+    <h2>📚 9 章完整内容</h2>
+    <div class="chapters">
+      <div class="chapter">第1章 · 函数基础与单元格引用</div>
+      <div class="chapter">第2章 · 逻辑函数（IF/AND/OR）</div>
+      <div class="chapter">第3章 · 查找引用（VLOOKUP/XLOOKUP）</div>
+      <div class="chapter">第4章 · 文本函数（LEFT/MID/CONCAT）</div>
+      <div class="chapter">第5章 · 数学统计（SUMIFS/COUNTIFS）</div>
+      <div class="chapter">第6章 · 日期时间（DATEDIF/WEEKDAY）</div>
+      <div class="chapter">第7章 · 数组公式与动态数组</div>
+      <div class="chapter">第8章 · 财务/HR 实战案例</div>
+      <div class="chapter">第9章 · 函数速查总表（CSV 可导入）</div>
+    </div>
   </div>
+
+  <div class="section">
+    <h2>👥 适合谁</h2>
+    <div class="grid">
+      <div class="item"><b>财务/会计</b>对账、报表、数据透视必用函数</div>
+      <div class="item"><b>HR/行政</b>考勤、薪酬、人员表处理</div>
+      <div class="item"><b>运营/数据分析</b>清洗数据、统计指标</div>
+      <div class="item"><b>大学生/求职者</b>面试技能加分项</div>
+    </div>
+  </div>
+
+  <div class="section price-box">
+    <h2>🎁 现在入手</h2>
+    <div class="old">原价 ¥29.9</div>
+    <div class="now">¥9.9<span class="unit"> / 份 · 一次买断</span></div>
+    <p>付款后自动发送到你的邮箱，永久保存随时查阅</p>
+    <a class="btn" href="http://82.157.101.183:8088/白洁/web/goods/pay-1785643231981-Excel函数速查手册200常用函数实战案例.html">立即购买 ¥9.9</a>
+    <div class="note">📧 购买后如未收到邮件，可联系 baijie.digital@gmail.com 补发</div>
+  </div>
+
+  <div class="section faq">
+    <h2>❓ 常见问题</h2>
+    <details><summary>付款后怎么收到手册？</summary><p>点击购买跳转支付宝付款，付款成功后系统自动把《Excel函数速查手册》发送到你填写的邮箱，几分钟内到账。</p></details>
+    <details><summary>我是新手，看不懂怎么办？</summary><p>手册从第1章函数基础讲起，每个函数都有真实案例和逐步讲解，零基础也能跟着做。</p></details>
+    <details><summary>有售后保障吗？</summary><p>内容货真价实，如果觉得不值，邮件联系我们可协商处理。</p></details>
+  </div>
+
 </div>
-
-<div class="footer">© Excel函数速查手册 · 职场办公效率工具 · 免费在线查询</div>
-
-<script>
-const FUNCS = [
-  {name:"VLOOKUP", cat:"lookup", desc:"按列查找并返回对应值，职场最常用函数。", syntax:"=VLOOKUP(查找值, 区域, 返回列号, [精确/近似])", example:"=VLOOKUP(A2, 员工表!A:C, 3, FALSE) 根据工号查工资"},
-  {name:"INDEX", cat:"lookup", desc:"返回区域中指定行列交叉处的值。", syntax:"=INDEX(区域, 行号, [列号])", example:"=INDEX(A1:C10, 3, 2) 返回第3行第2列"},
-  {name:"MATCH", cat:"lookup", desc:"返回指定值在区域中的位置序号。", syntax:"=MATCH(查找值, 区域, 0)", example:"=MATCH(\"张三\", A:A, 0) 返回张三所在行号"},
-  {name:"XLOOKUP", cat:"lookup", desc:"新版Excel万能查找，支持反向查找。", syntax:"=XLOOKUP(查找值, 查找区域, 返回区域)", example:"=XLOOKUP(A2, 表1!A:A, 表1!B:B) 找不到返回#N/A"},
-  {name:"IF", cat:"logic", desc:"条件判断，满足条件返回一个值，否则返回另一个。", syntax:"=IF(条件, 真值, 假值)", example:"=IF(B2>=60,\"及格\",\"不及格\")"},
-  {name:"IFS", cat:"logic", desc:"多条件判断，替代嵌套IF更清晰。", syntax:"=IFS(条件1,值1, 条件2,值2, ...)", example:"=IFS(B2>=90,\"优\",B2>=80,\"良\",B2>=60,\"中\",TRUE,\"差\")"},
-  {name:"AND", cat:"logic", desc:"多个条件同时满足才返回TRUE。", syntax:"=AND(条件1, 条件2, ...)", example:"=IF(AND(A2>0,B2>0),\"均为正\",\"有非正\")"},
-  {name:"OR", cat:"logic", desc:"任一条件满足即返回TRUE。", syntax:"=OR(条件1, 条件2, ...)", example:"=IF(OR(A2=\"\",B2=\"\"),\"有缺失\",\"完整\")"},
-  {name:"SUM", cat:"sum", desc:"求和，最基础也最常用。", syntax:"=SUM(数字1, 数字2, ...)", example:"=SUM(A1:A100) 一列求和"},
-  {name:"SUMIF", cat:"sum", desc:"按条件求和。", syntax:"=SUMIF(条件区域, 条件, [求和区域])", example:"=SUMIF(A:A,\"销售部\",C:C) 销售部业绩合计"},
-  {name:"SUMIFS", cat:"sum", desc:"多条件求和（新版更灵活）。", syntax:"=SUMIFS(求和区域, 条件区域1, 条件1, ...)", example:"=SUMIFS(C:C,A:A,\"销售部\",B:B,\"2024年\")"},
-  {name:"COUNTIF", cat:"sum", desc:"按条件统计个数。", syntax:"=COUNTIF(区域, 条件)", example:"=COUNTIF(B:B,\">60\") 及格人数"},
-  {name:"COUNTIFS", cat:"sum", desc:"多条件统计个数。", syntax:"=COUNTIFS(区域1, 条件1, 区域2, 条件2, ...)", example:"=COUNTIFS(A:A,\"男\",B:B,\">=90\") 男生且90分以上人数"},
-  {name:"AVERAGE", cat:"sum", desc:"求平均值。", syntax:"=AVERAGE(数字1, 数字2, ...)", example:"=AVERAGE(C2:C50) 平均业绩"},
-  {name:"LEFT", cat:"text", desc:"从左侧提取指定长度字符。", syntax:"=LEFT(文本, [字符数])", example:"=LEFT(A2,3) 取前3位，如取身份证前3位地区码"},
-  {name:"RIGHT", cat:"text", desc:"从右侧提取指定长度字符。", syntax:"=RIGHT(文本, [字符数])", example:"=RIGHT(A2,4) 取后4位，如取手机尾号"},
-  {name:"MID", cat:"text", desc:"从中间指定位置提取字符。", syntax:"=MID(文本, 起始位置, 字符数)", example:"=MID(A2,7,8) 从身份证提取出生日期"},
-  {name:"CONCATENATE", cat:"text", desc:"连接多个文本（可用 & 替代）。", syntax:"=CONCATENATE(文本1, 文本2, ...)", example:"=A2&B2 或 =CONCATENATE(A2,\"年\",B2,\"月\")"},
-  {name:"TRIM", cat:"text", desc:"清除文本首尾多余空格。", syntax:"=TRIM(文本)", example:"=TRIM(A2) 清理导入数据的空格"},
-  {name:"TODAY", cat:"date", desc:"返回今天的日期（自动更新）。", syntax:"=TODAY()", example:"=TODAY()-B2 计算到今天的天数"},
-  {name:"DATEDIF", cat:"date", desc:"计算两个日期的差值（年/月/日）。", syntax:"=DATEDIF(开始日, 结束日, \"单位\")", example:"=DATEDIF(B2,TODAY(),\"Y\") 计算工龄(年)"},
-  {name:"YEAR", cat:"date", desc:"提取日期的年份。", syntax:"=YEAR(日期)", example:"=YEAR(TODAY()) 当前年份"},
-  {name:"MONTH", cat:"date", desc:"提取日期的月份。", syntax:"=MONTH(日期)", example:"=MONTH(A2) 从日期提取月"},
-  {name:"DAY", cat:"date", desc:"提取日期的日号。", syntax:"=DAY(日期)", example:"=DAY(A2) 从日期提取日"},
-];
-
-const list = document.getElementById('list');
-const empty = document.getElementById('empty');
-const searchInput = document.getElementById('searchInput');
-let currentCat = 'all';
-
-function render() {
-  const kw = searchInput.value.trim().toLowerCase();
-  const items = FUNCS.filter(f => {
-    const okCat = currentCat === 'all' || f.cat === currentCat;
-    const okKw = !kw || f.name.toLowerCase().includes(kw) || f.desc.includes(kw);
-    return okCat && okKw;
-  });
-  empty.style.display = items.length ? 'none' : 'block';
-  list.innerHTML = items.map(f => `
-    <div class="card">
-      <h3>${f.name} <span class="tag">${catName(f.cat)}</span></h3>
-      <p>${f.desc}</p>
-      <p><code>语法：${f.syntax}</code></p>
-      <p>💡 案例：${f.example}</p>
-    </div>`).join('');
-}
-
-function catName(c) {
-  return {lookup:'查找引用', logic:'逻辑判断', sum:'求和统计', text:'文本处理', date:'日期时间'}[c] || c;
-}
-
-searchInput.addEventListener('input', render);
-document.getElementById('toolbar').addEventListener('click', e => {
-  if (e.target.classList.contains('cat-btn')) {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    currentCat = e.target.dataset.cat;
-    render();
-  }
-});
-render();
-</script>
+<div class="footer">© Excel函数速查手册 · 一次购买，永久使用</div>
 </body>
 </html>
